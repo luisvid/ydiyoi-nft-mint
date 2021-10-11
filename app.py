@@ -10,12 +10,19 @@ app = Flask(__name__)
 # De la manera en la que mostramos abajo, funciona pero hace un loop infinito, por lo cual abria que ponerlo
 # solo cuando el boton de Minting se apriete.
 @app.route('/mint', methods=['GET'])
-def index():
+def mint():
     os.system("brownie run scripts/simple_collectible/create_collectible.py  --network rinkeby")
     return {
         'name': 'BAAS 256 PRUEBA API'
     }
 
+@app.route('/')
+def index():
+    # show the subpath after /path/
+    return {
+        "mint enpoint":"/mint",
+        "echo enpoint":"/echo/<string:echo>"
+    }
 
 @app.route('/echo/<string:echo>')
 def show_subpath(echo):

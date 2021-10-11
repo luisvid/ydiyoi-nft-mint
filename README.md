@@ -67,6 +67,9 @@ heroku git:remote -a app-name — app-name is the name of the Heroku application
 ```sh
 git push heroku main — pushes the changes to heroku
 ```
+```sh
+heroku logs --tail - check app logs from Heroku CLI
+```
 
 ### Documentation 
 
