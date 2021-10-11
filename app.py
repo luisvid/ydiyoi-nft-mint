@@ -9,13 +9,18 @@ app = Flask(__name__)
 
 # De la manera en la que mostramos abajo, funciona pero hace un loop infinito, por lo cual abria que ponerlo
 # solo cuando el boton de Minting se apriete.
-@app.route('/', methods=['GET'])
+@app.route('/mint', methods=['GET'])
 def index():
     os.system("brownie run scripts/simple_collectible/create_collectible.py  --network rinkeby")
     return {
         'name': 'BAAS 256 PRUEBA API'
     }
 
+
+@app.route('/echo/<string:echo>')
+def show_subpath(echo):
+    # show the subpath after /path/
+    return {'echo': echo}
 
 """
 Ejemplo Fabri, Obtencion de datos desde el boton.

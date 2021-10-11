@@ -61,7 +61,7 @@ heroku create — will create an app in heroku
 ```
 
 ```sh
-heroku git:remote -a remote-repo-name — connects to the remote repository
+heroku git:remote -a app-name — app-name is the name of the Heroku application created in the previous step
 ```
 
 ```sh
